@@ -39,7 +39,7 @@ func (c Circle) String() string {
 func main() {
 	r := &Rectangle{2, 3}
 	c := &Circle{5}
-
+	
 	shapes := []Shape{r, c}
 
 	for _, s := range shapes {
