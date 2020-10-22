@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-// Implement types Rectangle, Circle and Shape
+
 type Rectangle struct{
 	width, length float64
 }
