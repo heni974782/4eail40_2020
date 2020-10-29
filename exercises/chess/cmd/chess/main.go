@@ -30,6 +30,8 @@ func runCommand(commandStr string) (e error) {
 		os.Exit(0)
 	// add another case here for custom commands.
 	case "new":
+		//test := Cartesian(0,1)
+		//fmt.Print(test)
 		// TODO Create a new game on a classic 8x8 board.
 		// TODO Display the board on console.
 		break

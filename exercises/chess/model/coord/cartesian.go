@@ -1,6 +1,8 @@
 package coord
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // Cartesian represent a set of cartesian coordinates, x and y.
 type Cartesian struct {

@@ -1,8 +1,9 @@
 package board
 
 import (
-	"github.com/jglouis/4eail40_2020/exercises/chess/model/coord"
-	"github.com/jglouis/4eail40_2020/exercises/chess/model/piece"
+	"fmt"
+	"github.com/rob195286/4eail40_2020/exercises/chess/chess/model/coord"
+	"github.com/rob195286/4eail40_2020/exercises/chess/chess/model/piece"
 )
 
 // Classic 8x8 Chess board
@@ -15,18 +16,44 @@ func (c *Classic) String() string {
 // PieceAt retrievves piece at give coordinates.
 // Returns nil if no piece was found.
 func (c *Classic) PieceAt(at coord.ChessCoordinates) piece.Piece {
-	panic("not implemented") // TODO: Implement
+	x, _ := at.Coord(0)
+	y, _ := at.Coord(1)
+	if c[x][y] != nil {
+		return c[x][y]
+	} else {
+		return nil
+	}
 }
 
 // MovePiece moves a piece from given coordinates to
 // given coordinates.
 // Returns an error if destination was occupied.
 func (c *Classic) MovePiece(from coord.ChessCoordinates, to coord.ChessCoordinates) error {
-	panic("not implemented") // TODO: Implement
+
+	newx, _ := to.Coord(0)
+	newy, _ := to.Coord(1)
+	coords := coord.NewCartesian(newx, newy)
+
+	if c.PieceAt(from) != nil {
+		pieceChess := c.PieceAt(coords)
+		c[newx][newy] = pieceChess
+		return nil
+	} else {
+		return fmt.Errorf("bad coord, a piece exist in coord {%d}, impossible move to", from)
+	}
 }
 
 // PlacePieceAt places a given piece at given location.
 // Returns an error if destination was occupied.
 func (c *Classic) PlacePieceAt(p piece.Piece, at coord.ChessCoordinates) error {
-	panic("not implemented") // TODO: Implement
+	x, _ := at.Coord(0)
+	y, _ := at.Coord(1)
+	if x > 8 || x < 0 || y < 0 || y > 8 {
+		return fmt.Errorf("bad coord, %d or %d are out of range", x, y)
+	} else if c.PieceAt(at) != nil {
+		return fmt.Errorf("bad coord, a piece exist in coord {%d, %d}", x, y)
+	} else {
+		c[x][y] = p
+		return nil
+	}
 }
