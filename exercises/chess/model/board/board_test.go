@@ -19,6 +19,12 @@ func (c mockCoord) String() string {
 }
 
 func TestClassic_MovePiece(t *testing.T) {
+	coords := coord.NewCartesian(1, 2)
+	pieceChess := piece.NewEchecPiece(coords, player.Color(0))
+	board := Classic{}
+	board[2][3] = pieceChess
+	board.MovePiece(pieceChess, coords)
+
 	type args struct {
 		from coord.ChessCoordinates
 		to   coord.ChessCoordinates
@@ -31,8 +37,8 @@ func TestClassic_MovePiece(t *testing.T) {
 	}{
 		{
 			"testmock",
-			&Classic{},
-			args{mockCoord(0), mockCoord(1)},
+			&board,
+			args{coord.NewCartesian(0, 1), coords},
 			true,
 		},
 	}

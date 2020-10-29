@@ -32,10 +32,10 @@ func (c *Classic) MovePiece(from coord.ChessCoordinates, to coord.ChessCoordinat
 
 	newx, _ := to.Coord(0)
 	newy, _ := to.Coord(1)
-	coords := coord.NewCartesian(newx, newy)
+	newCoords := coord.NewCartesian(newx, newy)
 
 	if c.PieceAt(from) != nil {
-		pieceChess := c.PieceAt(coords)
+		pieceChess := c.PieceAt(newCoords)
 		c[newx][newy] = pieceChess
 		return nil
 	} else {

@@ -25,3 +25,14 @@ func (e EchecPiece) Moves(isCapture bool) map[coord.ChessCoordinates]bool {
 func (e EchecPiece) String() string {
 	return fmt.Sprintf("coord : {%d}, color : %d", e.coord, e.color)
 }
+
+func (e EchecPiece) Coord(n int) (int, error) {
+	switch n {
+	case 0:
+		return 0, nil
+	case 1:
+		return 1, nil
+
+	}
+	return 0, fmt.Errorf("unknown coord component %d", n)
+}
