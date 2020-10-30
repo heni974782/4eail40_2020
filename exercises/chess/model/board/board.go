@@ -6,7 +6,7 @@ import (
 	"github.com/rob195286/4eail40_2020/exercises/chess/chess/model/piece"
 )
 
-// Classic 8x8 Chess board
+//  8x8 Chess
 type Classic [8][8]piece.Piece
 
 func (c *Classic) String() string {
@@ -25,8 +25,7 @@ func (c *Classic) PieceAt(at coord.ChessCoordinates) piece.Piece {
 	}
 }
 
-// MovePiece moves a piece from given coordinates to
-// given coordinates.
+// MovePiece moves a piece from given coordinates to given coordinates.
 // Returns an error if destination was occupied.
 func (c *Classic) MovePiece(from coord.ChessCoordinates, to coord.ChessCoordinates) error {
 
@@ -44,7 +43,7 @@ func (c *Classic) MovePiece(from coord.ChessCoordinates, to coord.ChessCoordinat
 }
 
 // PlacePieceAt places a given piece at given location.
-// Returns an error if destination was occupied.
+
 func (c *Classic) PlacePieceAt(p piece.Piece, at coord.ChessCoordinates) error {
 	x, _ := at.Coord(0)
 	y, _ := at.Coord(1)
