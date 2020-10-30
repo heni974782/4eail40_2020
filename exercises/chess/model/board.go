@@ -4,8 +4,8 @@ package model
 //TODO Implement type Board
 import (
 	"fmt"
-	"github.com/rob195286/4eail40_2020/exercises/chess/chess/model/coord"
-	"github.com/rob195286/4eail40_2020/exercises/chess/chess/model/piece"
+	"github.com/heni974782/4eail40_2020/exercises/chess/chess/model/coord"
+	"github.com/heni974782/4eail40_2020/exercises/chess/chess/model/piece"
 )
 
 // Classic 8x8 Chess board
